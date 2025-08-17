@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Tri-Cities</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: url('Images/bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      position: relative;
+    }
+
+    header img {
+      height: 4rem;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 600px) {
+      .logo-label {
+        display: none;
+      }
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      border-radius: 2px;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        padding: 10px 0;
+      }
+
+      nav a {
+        padding: 10px;
+        text-align: center;
+        font-size: 18px;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      #menu-toggle:checked+nav {
+        display: flex;
+      }
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    footer {
+      height: 60px;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="Images/logo.png" alt="My Logo">
+      <h1 class="logo-label">TRI-CITIES</h1>
+    </div>
+
+
+    <!-- Hamburger button -->
+    <label for="menu-toggle" class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <input type="checkbox" id="menu-toggle" />
+
+    <nav>
+      <a onclick="loadPage('demographicAndMigrationProfileChart.html')">Demographic and Migration Profile</a>
+      <a onclick="loadPage('chart2.html')">Chart 2</a>
+      <a onclick="loadPage('chart3.html')">Chart 3</a>
+    </nav>
+  </header>
+
+  <main>
+    <iframe id="content" src="demographicAndMigrationProfileChart.html"></iframe>
+  </main>
+
+  <footer>
+    &copy; 2025 — All rights reserved
+  </footer>
+
+  <script>
+    function loadPage(page) {
+      document.getElementById('content').src = page;
+    }
+  </script>
+</body>
+
+</html>
