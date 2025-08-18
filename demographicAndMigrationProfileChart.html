@@ -18,16 +18,17 @@
 
         .container {
             display: flex;
-            flex-wrap: wrap;
-            width: 100%;
-            max-width: 100%;
+            justify-content: center; /* centraliza o iframe */
+            align-items: center;
             min-height: 100vh;
+            padding: 20px;
         }
 
         .chart-wrapper {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%;
+            max-width: 1280px; /* largura máxima da tabela */
+            padding-bottom: 100%; /* altura igual à largura (1:1) */
             height: 0;
         }
 
@@ -55,7 +56,6 @@
 
 <body>
     <div class="container">
-
         <div class="chart-wrapper">
             <iframe
                 src="https://app.powerbi.com/view?r=eyJrIjoiOWU1YmI0MTktMTc5ZS00YTFhLThiNDYtNjYyZTg4OTQ5MTNjIiwidCI6IjU2MzFkYWYzLTM5OGItNGRjYy1hYTUxLTBhY2Y1MjA1NjExNiJ9"
@@ -65,4 +65,8 @@
 </body>
 
 </html>
+
+
+</html>
+
 
