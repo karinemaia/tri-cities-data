@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
         * {
             margin: 0;
@@ -10,25 +11,25 @@
             box-sizing: border-box;
         }
 
+        html,
         body {
+            width: 100%;
+            height: 100%;
             font-family: Arial, sans-serif;
             color: #333;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
         .container {
-            display: flex;
-            flex-wrap: wrap;
             width: 100%;
-            max-width: 100%;
-            min-height: 100vh;
+            height: 100%;
+            display: flex;
         }
 
         .chart-wrapper {
-            position: relative;
             width: 100%;
-            padding-bottom: 56.25%;
-            height: 0;
+            height: 100%;
+            position: relative;
         }
 
         .chart-wrapper iframe {
@@ -39,29 +40,28 @@
             height: 100%;
             border: none;
         }
-
-        h2 {
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: #6b4f3f;
-        }
-
-        p {
-            line-height: 1.6;
-            font-size: 16px;
-        }
     </style>
 </head>
 
 <body>
     <div class="container">
-
         <div class="chart-wrapper">
-            <iframe
-                src="https://app.powerbi.com/view?r=eyJrIjoiYzE5NWI0ZDMtNzMzYS00MjQxLTllZjgtNTBlNjgxOGQyNmE4IiwidCI6IjU2MzFkYWYzLTM5OGItNGRjYy1hYTUxLTBhY2Y1MjA1NjExNiJ9"
-                allowfullscreen></iframe>
+            <iframe id="powerbi-frame" allowfullscreen></iframe>
         </div>
     </div>
+
+    <script>
+        // URL for each type of device.
+        const desktopURL = "https://app.powerbi.com/view?r=eyJrIjoiOWU1YmI0MTktMTc5ZS00YTFhLThiNDYtNjYyZTg4OTQ5MTNjIiwidCI6IjU2MzFkYWYzLTM5OGItNGRjYy1hYTUxLTBhY2Y1MjA1NjExNiJ9";
+        const mobileURL = "https://app.powerbi.com/view?r=eyJrIjoiOTlhZWI1MzUtY2U4Ni00ZGM0LWExZmQtNDVmNmFjMzcwZGUzIiwidCI6IjU2MzFkYWYzLTM5OGItNGRjYy1hYTUxLTBhY2Y1MjA1NjExNiJ9";
+
+        // Check if it's a mobile
+        const isMobile = window.innerWidth <= 768;
+
+        // Define iframe src
+        const iframe = document.getElementById("powerbi-frame");
+        iframe.src = isMobile ? mobileURL : desktopURL;
+    </script>
 </body>
 
 </html>
